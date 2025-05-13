@@ -27,13 +27,13 @@ const SubtleShape = ({
   return (
     <motion.div
       initial={{ opacity: 0 }}
-      animate={{ opacity: 0.5 }}
+      animate={{ opacity: 0.7 }}
       transition={{
         duration: 1.2,
         delay,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className={cn("absolute rounded-full", color, className)}
+      className={cn("absolute rounded-full blur-xl", color, className)}
     />
   );
 };
@@ -106,26 +106,33 @@ export function AnimatedHero({
   };
 
   return (
-    <section className="relative overflow-hidden bg-white">
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Subtle background shapes */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Simple shapes with subtle colors */}
+        {/* Enhanced shapes with better colors */}
         <SubtleShape 
           delay={0.2} 
           className="w-[600px] h-[600px] -left-[200px] top-[5%]"
-          color="bg-slate-100"
+          color="bg-blue-200/40"
         />
         
         <SubtleShape 
           delay={0.4} 
           className="w-[500px] h-[500px] -right-[100px] top-[15%]"
-          color="bg-slate-100"
+          color="bg-indigo-200/40"
         />
         
         <SubtleShape 
           delay={0.3} 
           className="w-[300px] h-[300px] left-[10%] bottom-[15%]"
-          color="bg-slate-50"
+          color="bg-teal-200/40"
+        />
+
+        {/* Additional shapes for more visual interest */}
+        <SubtleShape 
+          delay={0.5} 
+          className="w-[350px] h-[350px] right-[20%] bottom-[20%]"
+          color="bg-cyan-200/30"
         />
       </div>
 

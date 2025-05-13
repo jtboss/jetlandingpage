@@ -17,13 +17,13 @@ const SubtleShape = ({
   return (
     <motion.div
       initial={{ opacity: 0 }}
-      animate={{ opacity: 0.4 }}
+      animate={{ opacity: 0.7 }}
       transition={{
         duration: 1.2,
         delay,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className={cn("absolute rounded-full", color, className)}
+      className={cn("absolute rounded-full blur-xl", color, className)}
     />
   );
 };
@@ -47,36 +47,43 @@ export function ConsistentBackground({
   intensity = 'medium',
   containerClassName,
 }: ConsistentBackgroundProps) {
-  // Get background color based on intensity
-  const bgColor = intensity === 'light' ? 'bg-white' : 
-                  intensity === 'medium' ? 'bg-slate-50' : 
-                  'bg-slate-100';
+  // Get background color based on intensity - using more interesting gradients
+  const bgColor = intensity === 'light' 
+    ? 'bg-gradient-to-br from-blue-50 to-slate-100' 
+    : intensity === 'medium' 
+      ? 'bg-gradient-to-br from-blue-100 to-slate-200' 
+      : 'bg-gradient-to-br from-blue-200 to-slate-300';
 
   return (
     <section className={cn("relative overflow-hidden", bgColor, className)}>
-      {/* Subtle background shapes - only visible in medium and strong intensities */}
-      {intensity !== 'light' && (
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Simple, subtle shapes */}
-          <SubtleShape 
-            delay={0.2} 
-            className="w-[600px] h-[600px] -left-[200px] top-[5%]"
-            color="bg-slate-200"
-          />
-          
-          <SubtleShape 
-            delay={0.4} 
-            className="w-[500px] h-[500px] -right-[100px] top-[15%]"
-            color="bg-slate-200"
-          />
-          
-          <SubtleShape 
-            delay={0.3} 
-            className="w-[300px] h-[300px] left-[10%] bottom-[15%]"
-            color="bg-slate-200"
-          />
-        </div>
-      )}
+      {/* Subtle background shapes - visible in all intensities now */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Enhanced, more visible shapes */}
+        <SubtleShape 
+          delay={0.2} 
+          className="w-[600px] h-[600px] -left-[200px] top-[5%]"
+          color={intensity === 'light' ? "bg-blue-200/30" : intensity === 'medium' ? "bg-blue-300/30" : "bg-blue-400/30"}
+        />
+        
+        <SubtleShape 
+          delay={0.4} 
+          className="w-[500px] h-[500px] -right-[100px] top-[15%]"
+          color={intensity === 'light' ? "bg-teal-200/30" : intensity === 'medium' ? "bg-teal-300/30" : "bg-teal-400/30"}
+        />
+        
+        <SubtleShape 
+          delay={0.3} 
+          className="w-[300px] h-[300px] left-[10%] bottom-[15%]"
+          color={intensity === 'light' ? "bg-indigo-200/30" : intensity === 'medium' ? "bg-indigo-300/30" : "bg-indigo-400/30"}
+        />
+
+        {/* Adding a few more shapes for a richer background */}
+        <SubtleShape 
+          delay={0.5} 
+          className="w-[400px] h-[400px] right-[15%] bottom-[10%]"
+          color={intensity === 'light' ? "bg-blue-200/20" : intensity === 'medium' ? "bg-blue-300/20" : "bg-blue-400/20"}
+        />
+      </div>
 
       <div className={cn("relative z-10", containerClassName)}>
         {children}
