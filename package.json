@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "\"react-dom\"": "18.2.0",
     "@hookform/resolvers": "^5.0.1",
     "@radix-ui/react-avatar": "^1.1.9",
     "@radix-ui/react-label": "^2.1.6",
@@ -22,7 +23,7 @@
     "motion": "^3.2.4",
     "motion-dom": "^12.11.0",
     "next": "15.3.2",
-    "react": "^19.0.0",
+    "react": "18.2.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.56.3",
     "resend": "^4.5.1",
@@ -31,6 +32,8 @@
     "zod": "^3.24.4"
   },
   "devDependencies": {
+    "\"@types/react-dom\"": "^18",
+    "\"@types/react\"": "^18",
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -38,8 +41,12 @@
     "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
+    "npm-check-updates": "^18.0.1",
     "postcss": "^8.4.24",
     "tailwindcss": "^3.3.2",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
