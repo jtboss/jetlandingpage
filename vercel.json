@@ -1,1 +1,1 @@
-{"version":2,"builds":[{"src":"public/**","use":"@vercel/static"}],"routes":[{"src":"/(.*)", "dest":"/public/$1"},{"handle":"filesystem"},{"src":"/.*","dest":"/public/index.html"}]}
+{"framework":"nextjs","buildCommand":"npm run build","outputDirectory":".next","installCommand":"npm install","env":{"NEXT_PUBLIC_BASE_URL":"https://jetlandingpage.vercel.app","RESEND_API_KEY":"re_dummy_value_for_build"}}
